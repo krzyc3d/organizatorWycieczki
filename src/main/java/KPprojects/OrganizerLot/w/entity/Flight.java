@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -22,8 +23,8 @@ public class Flight {
 
     private String endFligthPoint;
 
-//    @Temporal(TemporalType.DATE)
-//    private Data fligthDate;
+    @Temporal(TemporalType.DATE)
+    private LocalDate fligthDate;
 
 
 

@@ -17,10 +17,12 @@ public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToOne
+//    @ManyToOne
     private Long id;
 
     private List itemsToTake;
+
+    private String placeToObserve;
 
 //    @ForeignKey(endFligthPoint)
 //    private ConstraintMode endFligthPoint;

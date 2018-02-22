@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ITripRepository extends CrudRepository<Flight,Long> {
+public interface ITripRepository extends CrudRepository<Trip,Long> {
 }
