@@ -20,7 +20,7 @@ public class Trip {
 //    @ManyToOne
     private Long id;
 
-    private List itemsToTake;
+    private String itemsToTake;
 
     private String placeToObserve;
 

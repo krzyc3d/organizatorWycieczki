@@ -19,21 +19,14 @@
         <th>Item3</th>
         </thead>
         <tbody>
-        <tr th:each="uzytkownik : ${lista}">
-            <td th:text="${uzytkownik.name}">admin</td>
-            <td th:text="${uzytkownik.firstName}">Szymon</td>
-            <td th:text="${uzytkownik.surname}">Dembek</td>
-            <td th:text="${uzytkownik.email}">szymon@wp.pl</td>
-            <td th:if="${uzytkownik.sex != null}" th:text="${uzytkownik.sex.name}">Mezczyzna</td>
-            <td th:if="${uzytkownik.sex == null}">nieznana</td>
-            <td th:if="${uzytkownik.mainRole == null}"></td>
-            <td th:if="${uzytkownik.mainRole != null}" th:text="${uzytkownik.mainRole.name}">jakas rola</td>
-            <td><a class="btn btn-warning" th:href="@{/myUsers/edit/{userId}(userId=${uzytkownik.id})}">Edycja</a></td>
-            <td><a class="btn btn-danger" th:href="@{/myUsers/delete/{userId}(status=1,userId=${uzytkownik.id})}">Usun</a></td>
+        <tr th:each="item : ${itemList}">
+            <td th:text="${item.name}">NVM</td>
+            <!--<td th:text="${uzytkownik.firstName}">Szymon</td>-->
+            <!--<td th:text="${uzytkownik.surname}">Dembek</td>-->
         </tr>
         </tbody>
     </table>
-    <a class="btn btn-primary" th:href="@{/myUsers/add}">Nowy user</a>
+    <a class="btn btn-primary" th:href="@{/myUsers/add}">New item</a>
 </div>
 </body>
 </html>
