@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.nio.file.Path;
 
 @Controller
-@RequestMapping("/flight")
+@RequestMapping("/flights")
 public class FlightListController {
 
     @Autowired
