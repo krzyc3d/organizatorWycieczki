@@ -1,6 +1,7 @@
 package KPprojects.OrganizerLot.w.controller;
 
 
+import KPprojects.OrganizerLot.w.entity.Flight;
 import KPprojects.OrganizerLot.w.entity.Items;
 import KPprojects.OrganizerLot.w.repository.IFlightRepository;
 import KPprojects.OrganizerLot.w.repository.IItemsRepository;
@@ -32,6 +33,9 @@ public class FlightListController {
     @GetMapping
     public String getAllFlightList(Model model){
 
+        model.addAttribute("filght", flightRepository.findAll());
+        
+
         return "allFlights";
     }
 //    @PostMapping
@@ -40,4 +44,5 @@ public class FlightListController {
 //
 //        return "itemsToTake";
 //    }
+
 }

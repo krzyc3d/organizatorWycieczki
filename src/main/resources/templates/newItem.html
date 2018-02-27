@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista uzytkownikow</title>
+    <title>Items list</title>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -9,22 +9,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
 </head>
-
 <body>
-<div class="container">
-    <table class="table">
-        <thead>
-        <th>Item to take [press New item]</th>
-        <!--<th>Item2</th>-->
-        <!--<th>Item3</th>-->
-        </thead>
-        <tbody>
-        <tr th:each="item1 : ${item}">
-            <td th:text="${item1.name}">NVM</td>
+<form  th:action="@{/items/saveItem}" method="post" th:object="${newItem}">
+        <table>
+
+        <tr>
+            <td> Item  </td>
+            <td><input type="text" class="form-control" placeholder="Give item name" name="name" th:value="*{name}"/></td>
+            <td> Passport  </td>
+            <td> <input type="checkbox" class="form-control" name="name" th:value="*{name}"/></td>
+
+
         </tr>
-        </tbody>
-    </table>
-    <a class="btn btn-primary" th:href="@{/items/add}">New item</a>
-</div>
+
+
+        </table>
+        <button type="submit">Save new Item</button>
+    </form>
 </body>
 </html>
