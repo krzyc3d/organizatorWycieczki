@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface IFlightRepository extends CrudRepository<Flight,Long> {
-    List<Flight> findAllByOrderById();
 
 }
