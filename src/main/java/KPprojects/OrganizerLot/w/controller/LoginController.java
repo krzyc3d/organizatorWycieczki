@@ -8,10 +8,10 @@ public class LoginController {
 
     @GetMapping("/loginPage")
     public String loginForm() {
-        return "loginForm";
+        return "loginPage";
     }
 
-    @GetMapping("/errorPage")
+    @GetMapping("/loginFailure")
     public String loginFailure() {
         return "loginFailure";
     }

@@ -3,10 +3,10 @@ package KPprojects.OrganizerLot.w.controller;
 
 import KPprojects.OrganizerLot.w.entity.Flight;
 import KPprojects.OrganizerLot.w.entity.Items;
-import KPprojects.OrganizerLot.w.repository.IFlightRepository;
+import KPprojects.OrganizerLot.w.model.UserModel;
+import KPprojects.OrganizerLot.w.repository.*;
 import KPprojects.OrganizerLot.w.repository.IItemsRepository;
-import KPprojects.OrganizerLot.w.repository.ITripRepository;
-import KPprojects.OrganizerLot.w.repository.IItemsRepository;
+import KPprojects.OrganizerLot.w.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,8 +44,11 @@ public class FlightListController {
     @Autowired
     private IItemsRepository itemsRepository;
 
+    @Autowired
+    private UserService userService;
 
-
+    @Autowired
+    private IUserRepository userRepository;
 
     @GetMapping
     public String getAllFlightList() throws ParseException {
@@ -61,29 +64,33 @@ public class FlightListController {
         flightRepository.save (entity);
     }
 
-
-
-//    public String saveFlyList(@Validated @ModelAttribute("newFligth") Flight newFligth,
-//                BindingResult bindingResult) {
-//
-//            flightRepository.setFlightDataBase(newFligth);
-//
-//            Optional.ofNullable(newFligth.getId())
-//                    .flatMap(email ->flightRepository.findAllByOrderById(newFligth.getId()))
-//                    .ifPresent(existingUser -> bindingResult.addError(new FieldError("newFlight", "email",newFligth.getId(),
-//                            false, new String[] {"emailExists"}, new Object[] {}, "User with this email already exists")));
-//
-//
-//            if (bindingResult.hasErrors()) {
-//                return "redirect:/myUsers/userWithRoles";
-
-
-
-
-
-
         return "allFlights";
     }
+
+    @GetMapping("/signIn")
+    public  String addUser(){
+        userService.intializeSession ();
+
+        return "redirect:/flights/newUser";
+    }
+
+    @PostMapping(path="/saveNew")
+    public String saveNewUser(@Validated @ModelAttribute("newUser") UserModel newUser,
+                                   BindingResult bindingResult) {
+
+        userService.setUserDataForTheSession(newUser);
+
+        Optional.ofNullable(newUser.getEmail())
+                .flatMap(email -> userRepository.findFirstByEmail(newUser.getEmail()))
+                .ifPresent(existingUser -> bindingResult.addError(new FieldError("newUser", "email",newUser.getEmail(),
+                        false, new String[] {"emailExists"}, new Object[] {}, "User with this email already exists")));
+
+
+        if (bindingResult.hasErrors()) {
+            return "redirect:/flights";
+        }
+return "/flights";
+}
 }
 
 

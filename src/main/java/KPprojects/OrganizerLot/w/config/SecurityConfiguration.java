@@ -16,7 +16,7 @@ public class SecurityConfiguration extends  WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder.inMemoryAuthentication ( )
-                .withUser ("user1").password ("1234").authorities ("user");
+                .withUser ("user1@e").password ("1234").authorities ("user");
     }
 
      @Bean
@@ -29,7 +29,7 @@ public class SecurityConfiguration extends  WebSecurityConfigurerAdapter {
     protected void  configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests ()
                 .antMatchers ("/items").hasAnyAuthority ("user")
-                .antMatchers ("/items/add").hasAnyAuthority ("user")
+                .antMatchers ("/items/add").authenticated ()
             .and ()
                 .formLogin ()
                 .loginProcessingUrl ("/login")
