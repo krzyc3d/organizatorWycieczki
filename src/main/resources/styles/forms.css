@@ -1,0 +1,15 @@
+label {
+    width: 150px;
+    margin: 5px 0;
+    float: left;
+    clear: left;
+}
+input, textarea {width: 140px;float: left;}
+
+type label{
+
+    width: 150px;
+    margin: 5px 0;
+    float: left;
+    clear: left;
+}

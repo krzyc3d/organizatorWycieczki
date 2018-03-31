@@ -1,46 +1,86 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
-    <title>Floating labels example for Bootstrap</title>
+    <title>Login Page</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link href="floating-labels.css" rel="stylesheet">
+    <link href="starter-template.css" rel="stylesheet"/>
+
+    <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+    <!--<link href="floating-labels.css" rel="stylesheet"/>-->
 </head>
 
-<body>
-<form class="form-signin">
-    <div class="text-center mb-4">
-        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
-    </div>
+<body style="background-image:url( https://www.tapeciarnia.pl/tapety/normalne/230346_samolot_pasazerski_niebo_ksiezyc.jpg);
+background-attachment: scroll; background-repeat: no-repeat; background-position: center;  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover">
 
-    <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputEmail">Email address</label>
-    </div>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/flights">ChristoFly</a>
 
-    <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <label for="inputPassword">Password</label>
-    </div>
 
-    <!--<div class="checkbox mb-3">-->
-        <!--<label>-->
-            <!--<input type="checkbox" value="remember-me"> Remember me-->
-        <!--</label>-->
+</nav>
+
+
+<div class="text-center mb-4">
+        <br/>
+        <br/><br/>
+        <h1 class="h3 mb-3 font-weight-normal">Login to enjoy</h1>
+        <p>If you haven't account click the link  <a href="/flights/signIn">Sign in.</a></p>
+</div>
+    <br/><br/><br/>
+
+
+<div class="container">
+<form class="form-signin" method="post" th:action="@{/login}">
+
+    <!--<div class="text-center mb-4" >-->
+        <!--<label for="username">Email address</label>-->
+        <!--<input type="email" id="username" class="form-control mr-sm-2" name="password" placeholder="Email address" style="width: fit-content;  "/>-->
     <!--</div>-->
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+
+    <!--<div class="text-center mb-4">-->
+        <!--<label for="password">Password</label>-->
+        <!--<input type="password" id="password" class="text-center mb-4" name="password" placeholder="Password" />-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;<div class="checkbox mb-3">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input type="checkbox" value="remember-me"> Remember me&ndash;&gt;-->
+        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<br/>-->
+    <!--<div class="text-center mb-4">-->
+    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit"  >Log in</button>-->
+    <!--</div>-->
+
+    <form class="form-inline" method="post" th:action="@{/login}">
+        <label class="sr-only" for="username">Użytkownik</label>
+        <input type="email" class="form-control mb-2 mr-sm-2 mb-sm-0" id="username" placeholder="email" name="username"/>
+
+        <label class="sr-only" for="password">Hasło</label>
+        <input type="password" class="form-control" id="password" placeholder="password" name="password"/>
+
+        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Zaloguj</button>
+    </form>
+    <br/><br/><br/><br/>
+
 </form>
+
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+</div>
+
+
 </body>
 </html>

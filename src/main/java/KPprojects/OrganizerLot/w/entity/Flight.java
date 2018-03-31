@@ -1,13 +1,10 @@
 package KPprojects.OrganizerLot.w.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Data
@@ -24,9 +21,39 @@ public class Flight {
 
     private String endFligthPoint;
 
-    @Temporal(TemporalType.DATE)
-    private Calendar fligthDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fligthDate;
 
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getStartFligthPoint() {
+        return startFligthPoint;
+    }
+
+    public void setStartFligthPoint(String startFligthPoint) {
+        this.startFligthPoint = startFligthPoint;
+    }
+
+    public String getEndFligthPoint() {
+        return endFligthPoint;
+    }
+
+    public void setEndFligthPoint(String endFligthPoint) {
+        this.endFligthPoint = endFligthPoint;
+    }
+
+    public Date getFligthDate() {
+        return fligthDate;
+    }
+
+    public void setFligthDate(Date fligthDate) {
+        this.fligthDate = fligthDate;
+    }
 }
